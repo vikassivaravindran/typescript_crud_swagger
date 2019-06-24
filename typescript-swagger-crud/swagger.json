@@ -1,0 +1,89 @@
+{
+	"basePath": "/",
+	"consumes": [
+		"application/json"
+	],
+	"definitions": {
+		"Author": {
+			"properties": {
+				"_id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"_id",
+				"name"
+			],
+			"type": "object"
+		}
+	},
+	"info": {
+		"title": "typescript-swagger-crud",
+		"version": "1.0.0",
+		"description": "Sample project to demonstrate typescript crud operations and swagger generation",
+		"license": {
+			"name": "ISC"
+		}
+	},
+	"paths": {
+		"/authors": {
+			"get": {
+				"operationId": "GetAllAuthors",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/Author"
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateAuthor",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"schema": {
+							"$ref": "#/definitions/Author"
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"schema": {
+							"properties": {
+								"authName": {
+									"type": "string"
+								}
+							},
+							"title": "CreateAuthorBody",
+							"type": "object",
+							"required": [
+								"authName"
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	"produces": [
+		"application/json"
+	],
+	"swagger": "2.0",
+	"securityDefinitions": {}
+}
